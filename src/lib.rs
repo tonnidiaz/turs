@@ -1,7 +1,7 @@
+pub extern crate chrono;
 pub mod marcros;
 pub mod consts;
 pub mod funcs;
-pub mod ws;
 mod tests;
 
 pub fn add(left: u64, right: u64) -> u64 {
@@ -50,6 +50,7 @@ impl ValueTr for Value{
             .find(|x| x.as_str().to_lowercase() == s.to_lowercase())
     }
  }
+
 #[cfg(test)]
 mod tests1 {
     use super::*;
@@ -58,9 +59,5 @@ mod tests1 {
     fn it_works() {
         let result = add(2, 2);
         assert_eq!(result, 4);
-    }
-
-    async fn ws_client(){
-        tests::ws_client::main().await;
     }
 }

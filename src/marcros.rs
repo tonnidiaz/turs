@@ -7,8 +7,26 @@ macro_rules! log {
     ($($arg:expr),*) => {{
         use chrono::Local;
         #[allow(unused_macros)]
-        {let now = Local::now();
-        print!("\n[{}] ", now.format("%Y-%m-%d %H:%M:%S"));
-        println!($($arg),*);}
+        {
+            let now = Local::now();
+            let msg = format!($($arg),*);
+            println!("\n[{}] {}", now.format("%Y-%m-%d %H:%M:%S"), msg);
+        }
+    }};
+}
+#[macro_export]
+macro_rules! elog {
+
+    () => {
+        eprintln!();
+    };
+    ($($arg:expr),*) => {{
+        use chrono::Local;
+        #[allow(unused_macros)]
+        {
+            let now = Local::now();
+            let msg = format!($($arg),*);
+            eprintln!("\n[{}] {}", now.format("%Y-%m-%d %H:%M:%S"), msg);
+        }
     }};
 }
