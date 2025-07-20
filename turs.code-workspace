@@ -1,20 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "../../apps/tu_db"
-		},
-		{
 			"path": "."
 		},
 		{
-			"path": "../../apps/rs"
-		},
-		{
-			"path": "../../../Web/turbo-wp/turbo-two/apps/tu-trader/backend/test"
-		},
-		{
-			"path": "../../../Web/turbo-wp/turbo-two/apps/tu-trader/backend"
+			"path": "../turs_ws"
 		}
-	],
-    "settings": {}
+	]
 }

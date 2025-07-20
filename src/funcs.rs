@@ -61,3 +61,7 @@ pub fn calc_perc(b: f64, a: f64) -> f64 {
 pub fn ts() -> String{
     Local::now().to_rfc3339().split(".").nth(0).unwrap().to_string()
 }
+
+pub fn now() -> i64{
+    Local::now().timestamp_millis()
+}
