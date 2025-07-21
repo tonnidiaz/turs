@@ -65,3 +65,19 @@ pub fn ts() -> String{
 pub fn now() -> i64{
     Local::now().timestamp_millis()
 }
+
+pub fn fix_precision(n: f64, precision: usize) -> f64 {
+    let mut s = format!("{:.100}", n); // Use a high precision to avoid rounding errors
+    let decimal_pos = s.find('.').unwrap_or(0);
+    let end_pos = decimal_pos + precision + 1;
+    if end_pos < s.len() {
+        s = s[..end_pos].to_string();
+    }
+
+    s.parse().unwrap()
+}
+fn get_precision(s: String) -> usize {
+    let decimal_pos = s.find('.').unwrap_or(0);
+    let precision = s.len() - decimal_pos - 1;
+    precision
+}

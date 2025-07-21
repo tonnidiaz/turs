@@ -3,6 +3,7 @@ pub mod marcros;
 pub mod consts;
 pub mod funcs;
 mod tests;
+pub use funcs::*;
 
 pub fn add(left: u64, right: u64) -> u64 {
     left + right
@@ -10,7 +11,6 @@ pub fn add(left: u64, right: u64) -> u64 {
 
 use std::{fmt::Debug, path::PathBuf, pin::Pin};
 
-use funcs::ts;
 use rand::{distr::uniform::SampleUniform, Rng};
 use serde_json::Value;
 
