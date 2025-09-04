@@ -5,7 +5,6 @@ use std::{
 };
 
 use chrono::Local;
-
 use crate::consts;
 
 pub fn date_parse(ts_str: &str) -> i64 {

@@ -9,7 +9,7 @@ pub fn add(left: u64, right: u64) -> u64 {
     left + right
 }
 
-use std::{fmt::Debug, path::PathBuf, pin::Pin};
+use std::{error, fmt::Debug, path::PathBuf, pin::Pin};
 
 use rand::{distr::uniform::SampleUniform, Rng};
 use serde_json::Value;
@@ -21,7 +21,7 @@ pub fn gen_rand<T: SampleUniform + std::cmp::PartialEq + PartialOrd>(start: T, e
     num
 }
 
-pub trait StrTrait{
+ pub trait StrTrait{
     fn dirname(&self) ->String;
 }
 
@@ -56,7 +56,7 @@ impl ValueTr for Value{
     fn to_value(&self) -> serde_json::Value;
  }
 
-pub type Fut = Pin<Box<dyn Future<Output = ()> + Send>>;
+pub type Fut<T> = Pin<Box<dyn Future<Output = T> + Send + Sync>>;
 pub fn print(p: String){
     println!("\n[{}] {p}", ts());
 }
@@ -71,3 +71,4 @@ mod tests1 {
         assert_eq!(result, 4);
     }
 }
+pub type Res<T> = Result<T, Box<dyn error::Error + Send + Sync>>;
