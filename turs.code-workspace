@@ -1,10 +1,13 @@
 {
 	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "../turs_ws"
-		}
-	]
+        {
+            "path": "."
+        },
+        {
+            "path": "../turs_ws"
+        },
+        {
+            "path": "../tumongo"
+        }
+    ]
 }

@@ -4,15 +4,15 @@ use std::{
     path::Path,
 };
 
-use chrono::Local;
 use crate::consts;
+use chrono::Local;
 
 pub fn date_parse(ts_str: &str) -> i64 {
     if ts_str == "" {
         return Local::now().timestamp_millis();
     }
-    
-   let ts = chrono::DateTime::parse_from_str(ts_str, consts::DATE_FMT)
+
+    let ts = chrono::DateTime::parse_from_str(ts_str, consts::DATE_FMT)
         .unwrap()
         .timestamp_millis();
     ts
@@ -57,11 +57,16 @@ pub fn calc_perc(b: f64, a: f64) -> f64 {
     format!("{perc:.2}").parse().unwrap()
 }
 
-pub fn ts() -> String{
-    Local::now().to_rfc3339().split(".").nth(0).unwrap().to_string()
+pub fn ts() -> String {
+    Local::now()
+        .to_rfc3339()
+        .split(".")
+        .nth(0)
+        .unwrap()
+        .to_string()
 }
 
-pub fn now() -> i64{
+pub fn now() -> i64 {
     Local::now().timestamp_millis()
 }
 
