@@ -1,15 +1,18 @@
-pub extern crate chrono;
+pub use chrono;
+pub use tokio;
+pub use serde_json;
 pub mod marcros;
 pub mod consts;
 pub mod funcs;
 mod tests;
 pub use funcs::*;
+use tokio::time;
 
 pub fn add(left: u64, right: u64) -> u64 {
     left + right
 }
 
-use std::{error, fmt::Debug, path::PathBuf, pin::Pin};
+use std::{error, fmt::Debug, path::PathBuf, pin::Pin, time::Duration};
 
 use rand::{distr::uniform::SampleUniform, Rng};
 use serde_json::Value;
@@ -72,3 +75,8 @@ mod tests1 {
     }
 }
 pub type Res<T> = Result<T, Box<dyn error::Error + Send + Sync>>;
+
+
+pub async fn sleep(ms: u64){
+    time::sleep(Duration::from_millis(ms)).await;
+}
