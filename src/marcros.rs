@@ -10,7 +10,7 @@ macro_rules! log {
         {
             let now = Local::now();
             let msg = format!($($arg),*);
-            println!("\n[{}] {}", now.format("%Y-%m-%d %H:%M:%S"), msg);
+            println!("[{}] {}", now.format("%Y-%m-%d %H:%M:%S"), msg);
         }
     }};
 }
@@ -26,7 +26,7 @@ macro_rules! elog {
         {
             let now = Local::now();
             let msg = format!($($arg),*);
-            eprintln!("\n[{}] {}", now.format("%Y-%m-%d %H:%M:%S"), msg);
+            eprintln!("[{}] {}", now.format("%Y-%m-%d %H:%M:%S"), msg);
         }
     }};
 }
