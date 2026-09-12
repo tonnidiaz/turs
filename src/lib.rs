@@ -12,9 +12,9 @@ pub use funcs::*;
 use tokio::time;
 
 #[cfg(feature = "server")]
-mod server;
-#[cfg(feature = "server")]
-pub use server::*;
+pub mod server;
+/* #[cfg(feature = "server")]
+pub use server; */
 #[cfg(feature = "server")]
 pub use actix_web;
 
