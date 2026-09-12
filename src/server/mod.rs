@@ -1,6 +1,6 @@
 // pub mod io;
 
-use std::{sync::Arc, time::Instant};
+use std::time::Instant;
 
 use actix_cors::Cors;
 use actix_web::{

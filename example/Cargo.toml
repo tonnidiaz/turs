@@ -5,3 +5,4 @@ edition = "2024"
 
 [dependencies]
 turs = { version = "0.1.2", path = "..", features = ["server"] }
+actix-web = "4.15.0"
