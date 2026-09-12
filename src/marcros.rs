@@ -21,7 +21,7 @@ macro_rules! elog {
         eprintln!();
     };
     ($($arg:expr),*) => {{
-        use %crate::chrono::Local;
+        use $crate::chrono::Local;
         #[allow(unused_macros)]
         {
             let now = Local::now();
