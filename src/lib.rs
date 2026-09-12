@@ -15,12 +15,15 @@ use tokio::time;
 mod server;
 #[cfg(feature = "server")]
 pub use server::*;
+#[cfg(feature = "server")]
+pub use actix_web;
+
 
 pub fn add(left: u64, right: u64) -> u64 {
     left + right
 }
 
-use std::{error, fmt::Debug, path::PathBuf, pin::Pin, time::Duration};
+use std::{error, fmt::Debug, future::Future, path::PathBuf, pin::Pin, time::Duration};
 
 use rand::{distr::uniform::SampleUniform, Rng};
 use serde_json::Value;
@@ -71,7 +74,7 @@ pub type Fut<T> = Pin<Box<dyn Future<Output = T> + Send + Sync>>;
 pub fn print(p: String){
     println!("\n[{}] {p}", ts());
 }
-
+  
 #[cfg(test)]
 mod tests1 {
     use super::*;

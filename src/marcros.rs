@@ -5,7 +5,7 @@ macro_rules! log {
         println!();
     };
     ($($arg:expr),*) => {{
-        use turs::chrono::Local;
+        use $crate::chrono::Local;
         #[allow(unused_macros)]
         {
             let now = Local::now();
@@ -21,7 +21,7 @@ macro_rules! elog {
         eprintln!();
     };
     ($($arg:expr),*) => {{
-        use turs::chrono::Local;
+        use %crate::chrono::Local;
         #[allow(unused_macros)]
         {
             let now = Local::now();
